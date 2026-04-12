@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="list"></div>
+    <script>
+      const unchos = ["uncho", "ippon", "bichi", "maki"];
+      let li = "";
+
+      for (const uncho of unchos) {
+        li += "<li>" + uncho + "</li>";
+      }
+
+      const element = document.querySelector("#list");
+      element.innerHTML = li;
+    </script>
+  </body>
+</html>

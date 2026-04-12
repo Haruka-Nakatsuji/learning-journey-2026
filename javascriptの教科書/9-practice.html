@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const rawData = [
+        { id: 1, name: '森下翔太', team: '阪神', type: 'single', rbi: 0 },
+        { id: 2, name: '佐藤輝明', team: '阪神', type: 'double', rbi: 2 },
+        { id: 3, name: '坂本勇人', team: '巨人', type: 'single', rbi: 1 },
+        { id: 4, name: '森下翔太', team: '阪神', type: 'home run', rbi: 1 },
+        { id: 5, name: '岡本和真', team: '巨人', type: 'single', rbi: 0 },
+        { id: 6, name: '佐藤輝明', team: '阪神', type: 'single', rbi: 0 },
+      ];
+
+      const hanshinPlayers = rawData.filter((data) => data.team === '阪神');
+      console.log(hanshinPlayers);
+
+      const hitCount = rawData.reduce((prev, now) => {
+        // 左がnull(0)なら右！！！！！
+        prev[now.name] = (prev[now.name] || 0) + 1;
+        return prev;
+      }, {});
+      console.log(hitCount);
+
+      const playerNames = Object.keys(hitCount);
+      console.log(playerNames);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+[
+  { "id": 1, "userId": "u1", "name": "才木ファン", "text": "ナイスピッチング！", "likes": 12 },
+  { "id": 2, "userId": "u2", "name": "虎党A", "text": "佐藤輝明、次こそホームラン！", "likes": 5 },
+  { "id": 3, "userId": "u1", "name": "才木ファン", "text": "今日は完封いけるかも", "likes": 20 },
+  { "id": 4, "userId": "u3", "name": "野球好き", "text": "巨人の坂本も流石だね", "likes": 8 },
+  { "id": 5, "userId": "u2", "name": "虎党A", "text": "森下の守備も良かった！", "likes": 15 },
+  { "id": 6, "userId": "u1", "name": "才木ファン", "text": "最高すぎる！！", "likes": 100 },
+  { "id": 7, "userId": "u4", "name": "新人さん", "text": "初投稿です", "likes": 0 },
+  { "id": 8, "userId": "u5", "name": "G党", "text": "岡本のホームランに期待", "likes": 25 },
+  { "id": 9, "userId": "u2", "name": "虎党A", "text": "甲子園行きたいな〜", "likes": 30 },
+  { "id": 10, "userId": "u6", "name": "データマン", "text": "今日の勝率は高い", "likes": 2 },
+  { "id": 11, "userId": "u1", "name": "才木ファン", "text": "三振取った！", "likes": 45 },
+  { "id": 12, "userId": "u3", "name": "野球好き", "text": "やっぱりプロは違うね", "likes": 10 },
+  { "id": 13, "userId": "u7", "name": "熱血指導", "text": "もっと振っていけ！", "likes": 3 },
+  { "id": 14, "userId": "u2", "name": "虎党A", "text": "六甲おろし歌いたい", "likes": 50 },
+  { "id": 15, "userId": "u8", "name": "ビジター応援", "text": "アウェイだけど頑張れ", "likes": 7 },
+  { "id": 16, "userId": "u5", "name": "G党", "text": "戸郷もいいぞ", "likes": 18 },
+  { "id": 17, "userId": "u1", "name": "才木ファン", "text": "ヒーローインタビュー誰かな", "likes": 60 },
+  { "id": 18, "userId": "u9", "name": "解説ごっこ", "text": "今のスライダーはキレてた", "likes": 12 },
+  { "id": 19, "userId": "u2", "name": "虎党A", "text": "岡田監督の采配ミスか？", "likes": 4 },
+  { "id": 20, "userId": "u10", "name": "球場飯LOVE", "text": "焼きそば美味い", "likes": 80 }
+]

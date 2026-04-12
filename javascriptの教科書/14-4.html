@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="container">
+      <form action="#" id="form" name="form">
+        <p>
+          name: <br />
+          <input type="text" name="name" id="name" />
+        </p>
+        <p>
+          mail:<br />
+          <input type="email" name="email" id="email" />
+        </p>
+        <p>
+          <input type="submit" value="送信" id="submit" />
+        </p>
+      </form>
+      <p>https://httpbin.org/anythingからのレスポンス</p>
+      <pre id="placeholder"></pre>
+    </div>
+    <script type="module">
+      // POST
+      document.querySelector('#form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // FormData を使うと、フォームに入力された全ての値を**「配送用のセット（荷物）」**として一瞬でまとめてくれます。
+        const formData = new FormData(e.currentTarget);
+
+        try {
+          const response = await fetch('https://httpbin.org/anything', {
+            method: 'POST',
+            body: formData,
+          });
+          // ↑responseに、「送信した内容はこれやったね？？」ってサーバーが返してくれる
+          const data = await response.json();
+          document.querySelector('#placeholder').textContent = JSON.stringify(data, null, 2);
+        } catch (error) {
+          console.error('失敗！！！！！１');
+        }
+      });
+
+      // GETで送信
+      const queries = {
+        categoryId: 1,
+        search: 'カツオのたたき 薬味',
+      };
+      // ?categoryId=1&... みたいなんに変換される
+      const searchParams = new URLSearchParams(queries);
+      console.log(searchParams);
+      console.log(searchParams.toString());
+
+      const comments = {
+        postId: 3,
+      };
+      const url = new URL('https://jsonplaceholder.typicode.com/comments');
+      const query = new URLSearchParams(comments);
+      url.search = query;
+
+      console.log(url.toString());
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        document.querySelector('#placeholder').textContent = JSON.stringify(data, null, 2);
+      } catch (error) {
+        console.log('失敗！！！！！！！！！！');
+      }
+    </script>
+  </body>
+</html>

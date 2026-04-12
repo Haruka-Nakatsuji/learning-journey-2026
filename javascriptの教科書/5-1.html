@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 残余引数
+      function multiParams(uncho, ...rest) {
+        console.log(uncho, rest);
+      }
+
+      multiParams("maki", 1, 2, 3, 4, 5, 6);
+
+      function makeText(a, b) {
+        if (arguments.length !== 2) {
+          throw new Error("引数の数が不正です〜よ〜ん");
+        }
+        return a + "は" + b + "です";
+      }
+      // console.log(makeText("うんちょ")); // error
+
+      const makeText2 = (a, b, ...rest) => {
+        if (a === undefined || b === undefined || rest.length > 0) {
+          throw new Error("引数が不正ですわ。2ですわ。");
+        }
+        return a + b;
+      };
+      // console.log(makeText2("aa", "da", "sss")); // error
+
+      const uncho = {
+        id: 2034834345,
+        grade: 4,
+        name: "inchsi",
+        class: "hani",
+      };
+      function showStudentInfo({ id, grade }) {
+        const infoText = "ID: " + id + " / 学年: " + grade;
+        return infoText;
+      }
+      console.log(showStudentInfo(uncho)); // ID: 2034834345 / 学年: 4
+
+      // 参照渡し
+      function move(arr, qty) {
+        // const newArr = arr; // [346, 122],実態としては同じ「position」を参照している
+        const newArr = [...arr]; // [336, 112]
+        for (let i = 0; i < arr.length; i++) {
+          newArr[i] += qty; // positionを参照しちまってる
+        }
+        return newArr;
+      }
+      const position = [336, 112];
+      const newPosition = move(position, 10);
+      console.log(newPosition);
+      console.log(position);
+
+      //関数の結果を分割代入
+      function firstAndLast(arr) {
+        const first = arr.at(0);
+        const last = arr.at(-1);
+        return [first, last];
+      }
+      const arr2 = [1, 23, 55, 4];
+      const [unc, cho] = firstAndLast(arr2); //各々の値を別の定数に代入
+      console.log(unc, cho);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>https://example456.com</p>
+    <button>copy</button>
+    <pre class="" id="json"></pre>
+
+    <div class="container">
+      <pre id="placeholder"></pre>
+    </div>
+    <script>
+      document.querySelectorAll('button').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          const content = e.currentTarget.previousElementSibling.textContent;
+          navigator.clipboard
+            .writeText(content)
+            .then(() => {
+              alert('コピーしました');
+            })
+            .catch(() => {
+              alert('コピーに失敗しました');
+            });
+        });
+      });
+
+      document.querySelectorAll('button').forEach((btn) => {
+        btn.addEventListener('click', async (e) => {
+          const content = e.currentTarget.previousElementSibling.textContent;
+          try {
+            await navigator.clipboard.writeText(content);
+            alert('コピーしました');
+          } catch (error) {
+            alert('コピーに失敗しました');
+          }
+        });
+      });
+
+      // jsオブジェクト→json
+      const itohara = {
+        name: '糸原健斗',
+        ave: 0.0,
+        width: 84,
+        height: 178,
+      };
+      const json = JSON.stringify(itohara, null, 2);
+      document.querySelector('#json').textContent = json;
+
+      // json→jsオブジェクト
+      const json2 = '{"name": "早川太貴", "number": 51, "era": 0.00}';
+      const obj = JSON.parse(json2);
+      console.log(obj);
+
+      // fetchしてみよう！！
+      fetch('https://jsonplaceholder.typicode.com/todos')
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('だめ');
+        }) // ここでオブジェクトにしている
+        .then((data) => {
+          console.log(data);
+          const str = JSON.stringify(data, null, 2);
+          document.querySelector('#placeholder').textContent = str;
+        })
+        .catch((error) => {
+          console.error('エラー発生！:', error);
+          document.querySelector('#placeholder').textContent = 'データの読み込みに失敗しました。';
+        });
+    </script>
+    <script type="module">
+      try {
+        const response2 = await fetch('https://jsonplaceholder.typicode.com/aaa');
+
+        if (!response2.ok) {
+          throw new Error('だめ');
+        }
+
+        const data2 = await response2.json();
+
+        const str2 = JSON.stringify(data2, null, 2);
+        document.querySelector('#placeholder').textContent = str2;
+      } catch (error) {
+        console.error('エラー発生！:', error);
+        document.querySelector('#placeholder').textContent = 'データの読み込みに失敗しました。';
+      }
+    </script>
+    <script type="module">
+      const itoharaData = {
+        name: '糸原健斗',
+        ave: 0.0,
+        width: 84,
+        height: 178,
+      };
+
+      const response3 = await fetch('https://httpbin.org/anything', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(itoharaData),
+      });
+
+      const data3 = await response3.json();
+      const str3 = JSON.stringify(data3, null, 2);
+      document.querySelector('#placeholder').textContent = str3;
+      console.log(data3.data);
+    </script>
+  </body>
+</html>

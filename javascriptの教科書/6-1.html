@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log("0x2b4: " + 0x2b4);
+      console.log("123e3: " + 123e3);
+      console.log("100_000_000: " + 100_000_000);
+
+      // Nan === Nan -> false
+      // Nan == Nan -> falseになる！！
+      if (Number.isNaN("unko") === Number.isNaN("unko")) console.log("trueになる！");
+
+      // クソデカ数字の場合にBigint型に変換する
+      const convertBigintIftooBig = (a, b) => {
+        if (a + b > Number.MAX_SAFE_INTEGER || a + b < Number.MIN_SAFE_INTEGER) {
+          return BigInt(a) + BigInt(b);
+        }
+        return a + b;
+      };
+
+      const num1 = 9007199254740981; //Number.MAX_SAFE_INTEGERより10小さい値
+      console.log(convertBigintIftooBig(num1, 10)); // 9007199254740991
+      console.log(convertBigintIftooBig(num1, 11)); // 9007199254740992n
+
+      // 有限数かどうかを調べる
+      const isF = (num) => {
+        return Number.isFinite(num);
+      };
+      console.log(isF(365));
+      console.log(isF(3.65));
+      console.log(isF(365n)); //false
+      console.log(isF(Infinity)); //false
+      console.log(isF("365")); //false
+      console.log(isF(Number.MAX_SAFE_INTEGER));
+      console.log(isF(Number.MAX_INTEGER)); //false
+      //有限の「整数」かどうかを調べる
+      console.log(Number.isSafeInteger(3.14)); // false
+
+      //文字とかを数字にするお
+      console.log(Number.parseFloat("199"));
+      console.log(Number.parseFloat("イクク")); //Nan
+      //16進数とかの文字を10進数に変換
+      console.log(Number.parseInt("345", 10));
+      console.log(Number.parseInt("0x40", 16));
+    </script>
+  </body>
+</html>

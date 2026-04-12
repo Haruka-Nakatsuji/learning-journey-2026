@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="get">
+      <input type="number" name="postIdInput" id="postIdInput" />
+      <button type="submit">送信</button>
+    </form>
+    <script type="module">
+      document.querySelector('form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const id = document.querySelector('#postIdInput').value;
+
+        try {
+          const url = new URL('https://jsonplaceholder.typicode.com/comments');
+          const query = new URLSearchParams({ postId: id });
+          url.search = query;
+          const response = await fetch(url);
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.log('失敗！！！！！！');
+        }
+      });
+    </script>
+  </body>
+</html>

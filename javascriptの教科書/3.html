@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 値がない
+      console.log(null);
+      // 値が定義されていない。はっきりした区別は難しい
+      console.log(undefined);
+
+      let number;
+      if (number === undefined) {
+        number = 1;
+      }
+      console.log(number);
+
+      console.log(typeof 1020); //number
+      console.log(typeof 1023924384n); //bigint これはnumberと計算できない
+
+      let unko = Symbol('うんちょです');
+      let unko2 = Symbol('うんちょです');
+      console.log(unko);
+      console.log(typeof unko);
+      console.log(unko === unko2); //false
+
+      let str = 'うんこ';
+      console.log(str.repeat(5));
+      console.log(str); // うんこが５個にはなっていない。もし変えるなら再代入する必要がある
+
+      let num1 = 15;
+      let num2 = num1;
+      num2 += 3;
+      console.log(num1, num2); // num1は変わらない
+
+      let arr1 = [1, 2, 3];
+      arr1.push(4);
+      let arr2 = arr1;
+      console.log(arr1, arr2);
+      arr2[0] = 6;
+      console.log(arr1, arr2);
+
+      let [...arr3] = arr1;
+      arr3[0] = 7;
+      console.log(arr1, arr2, arr3);
+
+      let msg = 0;
+      let userMsg = msg || '代入してやったよ代わりに！'; //falsyの値なら全て右になってしまう
+      console.log(userMsg);
+
+      let msg2 = 0;
+      let userMsg2 = msg2 ?? '代入してやったよ代わりに！'; //nullかundefinedの時だけ右になるよ。これは0
+      console.log(userMsg2);
+
+      let msg3;
+      console.log((msg3 ??= '代入してやってよ代わりに！'));
+
+      let msg4 = 0;
+      console.log(msg4 ? 'trueだにょ' : 'falseだにょ');
+
+      const maxScore = 1000,
+        maxLevel = 10;
+    </script>
+  </body>
+</html>

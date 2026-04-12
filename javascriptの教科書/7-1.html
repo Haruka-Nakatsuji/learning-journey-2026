@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function myTag(strings, age) {
+        console.log(strings);
+        console.log(age);
+        // age = new Date().getFullYear() - 1995;
+        let comment = "";
+        if (age < 30) {
+          comment = "もうすぐ30です";
+        }
+        if (age === 30) {
+          comment = "ちょうど30";
+        }
+        if (age > 30) {
+          comment = "オーバー30でやんす";
+        }
+        return strings[0] + age + strings[1] + comment;
+      }
+      const introduce = myTag`私はBABI、今年で${50}さい、`;
+      console.log(introduce);
+    </script>
+  </body>
+</html>

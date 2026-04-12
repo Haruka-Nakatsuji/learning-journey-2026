@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // テンプレートリテラルは便利だね。
+      const text = `改行できちゃうようん！
+      できる`; // 実際にも改行されている
+      console.log(text);
+
+      const radius = 3;
+      const result = `半径${radius}の円の面積は${Math.PI * radius ** 2}です`;
+      console.log(result);
+
+      // 正規表現
+      const text2 = '営業時間: 10:00〜12:00';
+      const re = /\d\d:\d\d/g;
+      console.log(text2.match(re)); // ['10:00', '12:00']
+
+      const text3 = '私のWebサイトは、「https://example456.com/」です。';
+      const re2 = /Webサイト/;
+      const re3 = /[W|w]ebサイト/; //どっちでもいい
+      const re4 = /https?\/\//; // sがあってもなくてもいい
+      const re5 = /https?\/\/[\w.-]+\.[\w.-]+[\/|\?|#]?/; //urlにマッチするか
+
+      // replace
+      const str = 'うんこでございやす。赤ん坊の鳴き声が苦手です。';
+      const replaced = str.replace('。', 'ます');
+      console.log(replaced);
+    </script>
+  </body>
+</html>

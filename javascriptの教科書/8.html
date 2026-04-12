@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module">
+      const arr = [1, 2, 3, 4, 5];
+      const edited = arr.with(1, 'itohara');
+      console.log(arr);
+      console.log(edited);
+      console.log(Array.isArray(arr));
+
+      const pushed = [...edited, 'hamster'];
+      console.log(pushed);
+
+      const unshifted = ['morishita', ...pushed];
+      console.log(unshifted);
+
+      const gathanco = [...arr, ...unshifted];
+      console.log(gathanco);
+
+      const param1 = arr.toSpliced(1, 2); // 1,4,5
+      console.log(param1);
+
+      const param2 = arr.toSpliced(-2); // 1,2,3
+      console.log(param2);
+
+      const param3 = arr.toSpliced(2, 1, 'anko'); //[1, 2, 'anko', 4, 5]
+      console.log(param3);
+
+      const param4 = arr.toSpliced(1, 2, 'anko', 'unko'); //[1, 'anko', 'unko', 4, 5]
+      console.log(param4);
+
+      // ----- //
+      const players = ['才木浩人', '佐藤輝明', '森下翔太', '近本光司', '大山悠輔'];
+
+      console.log(players.includes('才木浩人'));
+      console.log(players.find((player) => player === '才木浩人')); // 才木浩人
+      console.log(players.find((player, index) => index < 3)); // 才木浩人
+      console.log(players.findIndex((player) => player === '森下翔太')); // 2
+      console.log(players.find((player) => player === '中野拓夢')); //undefind
+      console.log(players.filter((player, index) => index < 3)); // ['才木浩人', '佐藤輝明', '森下翔太']
+
+      const numbers = [1, 2, 3, 4, 5];
+      const sum = numbers.reduce((accumulator, current) => {
+        return accumulator + current;
+      }, 0);
+      // 1
+      // 3
+      // 6
+      // 10
+      // 15
+      console.log(sum);
+
+      const count = players.reduce((acc, name) => {
+        // すでに名前があれば+1、なければ1にする
+        acc[name] = (acc[name] || 0) + 1;
+        return acc;
+      }, {});
+
+      console.log(count);
+    </script>
+  </body>
+</html>

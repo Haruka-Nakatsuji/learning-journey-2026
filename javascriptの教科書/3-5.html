@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const email = "uncho@uncho.com";
+      const tel = "poppo";
+      const contact = email || tel;
+      console.log(contact);
+
+      // 入力してください
+      // let var1 = prompt("なんか入力しろ。さもなくばうんちょにするぞ");
+      // var1 = var1 || "うんちょ"; // var1 ||= "うんちょ";
+      // console.log(var1);
+
+      //オプショナルチェーン
+      const unchi = {
+        width: 1000,
+        height: 400,
+        toilet: {
+          width: 5000,
+          height: 6000,
+        },
+      };
+      const unchiW = unchi.hole?.width; // undifind あるかどうかわからないプロパティの後ろに?をつけることでエラーを回避している
+      const unchiH = unchi.hole?.height; // undifind
+      console.log(unchiW, unchiH);
+
+      // nurupoがnullだったらga!になるんや・・
+      let nurupo;
+      console.log((nurupo ??= "ga!"));
+
+      // 配列を別々の変数に代入
+      const unchies = ["ippon", "maki", "geri"];
+      const [a, b, c] = unchies;
+      console.log(a, b, c);
+
+      // スプレッド構文【いつ使うねん】
+      const arr = [1, 2, 3, 4, 5];
+      const [first, second, ...rest] = arr;
+      console.log(first);
+      console.log(second);
+      console.log(rest); // [3,4,5]
+
+      // スプレッド構文でオブジェクト代入
+      const hours = {
+        shop: "ドーナツやさん",
+        open: "10:00",
+        close: "19:00",
+      };
+      const { shop, ...time } = hours;
+      console.log(shop);
+      console.log(time);
+
+      // 256
+      console.log(2 ** (2 ** 3));
+    </script>
+  </body>
+</html>

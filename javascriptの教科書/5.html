@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // デフォルト
+      function hit(name = '単打') {
+        return name;
+      }
+      console.log(hit());
+
+      // 数を指定しない引数
+      function hitPlayer(...playerNames) {
+        console.log('arguments: ' + arguments.length);
+
+        const names = [];
+        for (const playerName of playerNames) {
+          names.push(playerName + '選手がヒット！');
+        }
+        return names;
+      }
+      console.log(hitPlayer('糸原', '中川'));
+
+      // 分割代入を利用してオブジェクトの特定のプロパティのみをしようする
+      const itohara = {
+        name: '糸原健斗',
+        ave: 0.0,
+        height: 175,
+        width: 80,
+      };
+      function showItoharaInfo({ name, ave, height }) {
+        name = '偽糸原';
+        console.log(`名前:${name}, 打率:${ave}`);
+      }
+      console.log(showItoharaInfo(itohara));
+      console.log(itohara); // これは変わらん
+
+      function returnFunc(msg) {
+        console.log(msg);
+        return function () {
+          console.log('returnFunc()が実行されないと使えない関数を実行');
+        };
+      }
+      returnFunc('実行してやるぜ〜。newFuncは実行されない');
+      const newFunc = returnFunc('実行');
+      newFunc(); //←ここで初めてreturnされた関数が実行される
+    </script>
+  </body>
+</html>

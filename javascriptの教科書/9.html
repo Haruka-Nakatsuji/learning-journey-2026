@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module">
+      const obj = {};
+      const prop = 'prop';
+
+      for (let i = 0; i < 3; i++) {
+        obj[prop + i] = i;
+      }
+
+      console.log(obj);
+
+      const nowPlayer = '湯浅京己';
+      const number = 65;
+      const item1 = {
+        nowPlayer,
+        number,
+      };
+      console.log(item1);
+
+      const item2 = {
+        name: '髙寺望夢',
+        num: 67,
+      };
+      const { name, num } = item2;
+      console.log(name, num);
+
+      const playerInfo = {
+        name: '福島圭音',
+        temp: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        defence() {
+          return this.temp;
+        },
+        getName() {
+          return this.name;
+        },
+      };
+      console.log(playerInfo.getName());
+      console.log(playerInfo.defence());
+
+      console.log(Object.entries(playerInfo));
+
+      const satoteruObj = {
+        name: '佐藤輝明',
+        nickName: 'テル',
+        number: 8,
+      };
+      Object.freeze(satoteruObj);
+      try {
+        satoteruObj.name = '大山';
+      } catch (error) {
+        console.error('てるの全てを変更することはできない');
+      }
+
+      console.log(Object.hasOwn(satoteruObj, 'unko'));
+
+      const keys = Object.keys(satoteruObj);
+      const values = Object.values(satoteruObj);
+      const entries = Object.entries(satoteruObj);
+
+      console.log(keys, values, entries);
+
+      const map = new Map();
+      map.set('file', '/unko').set('wh', [1200, 800]).set(69, 'シックスナイン');
+      console.log(map);
+
+      map.forEach((v, k) => {
+        console.log(`${k}は${v}です。`);
+      });
+
+      // set
+      const tags = ['JavaScript', 'React', 'JavaScript', 'TypeScript', 'React'];
+      // 重複した値を取り除いた配列を作るよ
+      const uniqueSet = new Set(tags);
+      const uniqueTags = [...uniqueSet];
+      console.log(uniqueSet);
+      console.log(uniqueTags);
+
+      // これでも行けるっぽい！！
+      console.log([...new Set(tags)]);
+    </script>
+  </body>
+</html>
