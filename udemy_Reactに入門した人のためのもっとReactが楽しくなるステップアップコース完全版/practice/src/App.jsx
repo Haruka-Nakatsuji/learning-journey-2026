@@ -19,12 +19,12 @@ function App() {
   return (
     <>
       <div className='App'>
-        <input value={text} onChange={onChangeText} />
+        {/* <input value={text} onChange={onChangeText} />
         <br />
         <br />
         <button onClick={onClickOpen}>表示</button>
         <ChildArea open={open} onClickClose={onClickClose} />
-        <CssModules />
+        <CssModules /> */}
       </div>
     </>
   );
