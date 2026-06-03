@@ -7,6 +7,15 @@ import { EventMouse } from './EventMouse';
 import { EventObj } from './EventObj';
 import { StateForm } from './StateForm';
 import { RefBasic } from './RefBasic';
+import { LazyBasic } from './LazyBasic';
+import { PortalBasic } from './PortalBasic';
+import { ThrowError } from './ThrowError';
+import { RetryError } from './RetryError';
+import { MaterialBasic } from './MaterialBasic';
+import { ErrorBoundary } from 'react-error-boundary';
+import { MaterialDrawer } from './MaterialDrawer';
+import { GridBasic } from './GridBasic';
+import { MyButton } from './MyButton';
 
 function App() {
   console.log('App');
@@ -27,6 +36,32 @@ function App() {
       <EventObj />
       <StateForm />
       <RefBasic />
+      <br></br>
+      <LazyBasic />
+      <div>
+        <div id='ahra' style={{ padding: '2em', border: '1px solid', margin: '2em' }}>
+          ここにぶち込んでみよ！！
+        </div>
+      </div>
+      <PortalBasic />
+      <ErrorBoundary fallback='エラーでちゅよ〜fallback'>
+        <ThrowError />
+      </ErrorBoundary>
+      <RetryError />
+      <MaterialBasic />
+      <MaterialDrawer />
+      <GridBasic />
+      <MyButton />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 }
