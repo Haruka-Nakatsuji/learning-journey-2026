@@ -16,6 +16,10 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { MaterialDrawer } from './MaterialDrawer';
 import { GridBasic } from './GridBasic';
 import { MyButton } from './MyButton';
+import { StateEffect } from './StateEffect';
+import { HookTimer } from './HookTimer';
+import { HookCallbackRef } from './HookCallbackRef';
+import { HookReducer } from './HookReducer';
 
 function App() {
   console.log('App');
@@ -53,6 +57,14 @@ function App() {
       <GridBasic />
       <MyButton />
       <br />
+      <hr />
+      <br />
+      <StateEffect init={0} />
+      <HookTimer init={10} />
+      <br />
+      <HookCallbackRef />
+      <br />
+      <HookReducer init={10} />
       <br />
       <br />
       <br />
